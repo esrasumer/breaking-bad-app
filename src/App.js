@@ -1,48 +1,22 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import Layout from './Layout';
+import Home from './pages/Home';
+import About from './pages/About';
+import Users from './pages/Users';
 
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-        <Route path="/about">
-          <About />
+      <Routes>
+        <Route path="/*" element={<Layout />} >
+          <Route path="" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="users" element={<Users />} />
         </Route>
-        <Route path="/users">
-          <Users />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </div>
+      </Routes>
     </BrowserRouter>
   )
-
 };
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
-
 
 export default App;
