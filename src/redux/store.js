@@ -1,8 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit'
-import charactersSlice from './charactersSlice'
+import {configureStore} from "@reduxjs/toolkit";
+import charactersSlice from "./charactersSlice";
 
-export default configureStore({
-    reducer: {
-        characters: charactersSlice,
-    }
+ const store = configureStore({
+     reducer: {
+          characters: charactersSlice,
+     },
 })
+
+export default store;

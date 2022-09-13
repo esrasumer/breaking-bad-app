@@ -15,7 +15,7 @@ export const charactersSlice = createSlice({
     reducers: {},
     extraReducers: {
         [fetchCharacters.fulfilled]: (state, action) => {
-            console.log(action.payload);
+            state.item = action.payload; // redux'ta gözükmesi için console.log yerine yazılır
         }
     }
 });
